@@ -8,6 +8,7 @@ public class EmpWageCmp {
 		public static final int IS_PART_TIME = 1;
 		public static final int EMP_RATE_PER_HR = 20;
 		public static final int NUM_OF_WORKING_DAYS = 20;
+		public static final int MAX_HR_IN_MONTH =  10;
 		
 		public static void main(String[] args)
 		{
@@ -18,8 +19,11 @@ public class EmpWageCmp {
 				int empHrs = 0;
 				int empWage = 0;
 				int TotalEmpWage = 0;
+				int TotalEmpHr= 0;
+				int TotalWorkingDays = 0;
 				// Computation
-		for (int day = 0; day < NUM_OF_WORKING_DAYS; day++ ) {
+		while (TotalEmpHr <= MAX_HR_IN_MONTH && TotalWorkingDays < NUM_OF_WORKING_DAYS){
+			TotalWorkingDays++;
 			int empcheck = (int) Math.floor(Math.random() * 10)% 3;
 			switch (empcheck) {
 		
@@ -39,7 +43,7 @@ public class EmpWageCmp {
 		//else if (empcheck == IS_PART_TIME)
 			//System.out.println("Employee is Absent");
 			//empHrs = 8;
-		
+		TotalEmpHr += empHrs ;
 		empWage = empHrs * EMP_RATE_PER_HR ;
 		TotalEmpWage += empWage ;
 		System.out.println("Emp Wage: "  + empWage);
